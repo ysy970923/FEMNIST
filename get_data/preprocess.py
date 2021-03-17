@@ -24,6 +24,7 @@ n_writer = 0
 writer2Idx = {}
 
 for folder in folders:
+  print(folder)
   subfolderfiles = os.listdir("../data/by_class/{}".format(folder))
   
   subfolders = []
@@ -53,8 +54,8 @@ for folder in folders:
 
       if not os.path.isdir("../data/writer/{}".format(writer2Idx[writer])):
         os.mkdir("../data/writer/{}".format(writer2Idx[writer]))
-        for folder in folder2Label.keys():
-          os.mkdir("../data/writer/{}/{}".format(writer2Idx[writer], folder2Label[folder]))
+        for fkey in folder2Label.keys():
+          os.mkdir("../data/writer/{}/{}".format(writer2Idx[writer], folder2Label[fkey]))
 
       target_dir = "../data/writer/{}/{}".format(writer2Idx[writer], folder2Label[folder])
       shutil.copy(file_dir, target_dir)

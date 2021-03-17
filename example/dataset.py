@@ -20,6 +20,10 @@ class Fake_Dataset(Dataset):
 def get_femnistDatasets(n_nodes):
 	apply_transform_train = transforms.Compose(
 		[
+			transforms.CenterCrop((96,96)),
+      transforms.Grayscale(num_output_channels=1),
+			transforms.Resize((28,28)),
+			transforms.ColorJitter(contrast=3),
 			transforms.ToTensor(),
 			transforms.Normalize((0.1307,), (0.3081,))]
 	)
